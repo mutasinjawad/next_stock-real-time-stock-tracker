@@ -121,10 +121,26 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
+}
+
+.home-wrapper {
+  @apply text-gray-400 flex-col gap-4 md:gap-10 items-center sm:items-start;
+}
+
+.home-section {
+  @apply w-full gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3;
+}
+
+.custom-chart.tradingview-widget-container iframe {
+  border: 1px solid #30333A;
+  border-radius: 8px !important;
+  overflow: hidden !important;
 }
