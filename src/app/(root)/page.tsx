@@ -5,7 +5,7 @@ import { HEATMAP_WIDGET_CONFIG, MARKET_DATA_WIDGET_CONFIG, MARKET_OVERVIEW_WIDGE
 const Home = () => {
   const scriptUrl = `https://s3.tradingview.com/external-embedding/embed-widget-`
   return (
-    <div className="flex justify-center items-center min-h-screen home-wrapper w-full">
+    <div className="flex justify-center min-h-screen home-wrapper w-full">
       <section className="grid w-full gap-8 home-section">
         <div className="md:col-span-1 xl:col-span-1">
           <TradinViewWidget title="Market Overview" scriptUrl={`${scriptUrl}market-overview.js`} config={MARKET_OVERVIEW_WIDGET_CONFIG} className="custom-chart" height={600}/>
