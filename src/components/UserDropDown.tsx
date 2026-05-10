@@ -16,21 +16,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 
-const UserDropDown = () => {
+const UserDropDown = ({ user }: { user: User }) => {
     const router = useRouter();
 
     const handleSignOut = () => {
         router.push("/sign-in");
     }
 
-    const user = { name : "Jawad", email : "jawad@gmail.com", avatarImage : "https://github.com/shadcn.png"}
-
     return (
         <DropdownMenu>
             <DropdownMenuTrigger render={
                 <Button variant="ghost" className="flex items-center gap-3 text-gray-4 hover:text-yellow-500">
                     <Avatar className="h-8 w-8">
-                        <AvatarImage src={user.avatarImage} />
+                        <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback className="bg-yellow-400 text-yellow-900 text-sm font-bold">{user.name[0]}</AvatarFallback>
                     </Avatar>
                     <div className="hidden md:flex flex-col items-start">
@@ -45,7 +43,7 @@ const UserDropDown = () => {
                     <DropdownMenuLabel>
                         <div className="flex items-center gap-3">
                             <Avatar className="h-10 w-10">
-                                <AvatarImage src={user.avatarImage} />
+                                <AvatarImage src="https://github.com/shadcn.png" />
                                 <AvatarFallback className="bg-yellow-400 text-yellow-900 text-sm font-bold">{user.name[0]}</AvatarFallback>
                             </Avatar>
                             <div className="flex flex-col items-start">
