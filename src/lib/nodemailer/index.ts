@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { WELCOME_EMAIL_TEMPLATE } from './mtemplates';
+import { WELCOME_EMAIL_TEMPLATE, NEWS_SUMMARY_EMAIL_TEMPLATE } from './mtemplates';
 
 export const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -18,6 +18,21 @@ export const sendWelcomeEmail = async ({ email, name, intro }: WelcomeEmailData)
         to: email,
         subject: 'Welcome to Signalist - your stock market toolkit is ready!',
         text: "Thanks for joining Signalist!",  
+        html: htmlTemplate
+    };
+
+    await transporter.sendMail(mailOptions);
+}
+
+export const sendNewSummaryEmail = async ({ email, date, newsContent }: { email: string; date: string; newsContent: string }) => {
+    const htmlTemplate = NEWS_SUMMARY_EMAIL_TEMPLATE.replace('{{date}}', date)
+                                                    .replace('{{newsContent}}', newsContent);
+
+    const mailOptions = {
+        from: `"Signalist" <signalist@stockmarket.com>`,
+        to: email,
+        subject: `📈 Market News Summary Today - ${date}`,
+        text: "Today's market news summary from Signalist.",
         html: htmlTemplate
     };
 
