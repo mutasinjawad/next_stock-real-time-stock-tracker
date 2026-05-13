@@ -16,7 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LogOut } from "lucide-react";
 import NavItems from "./NavItems";
 
-const UserDropDown = ({ user }: { user: User }) => {
+const UserDropDown = ({ user, initialStocks }: { user: User; initialStocks: StockWithWatchlistStatus[] }) => {
     const router = useRouter();
 
     const handleSignOut = () => {
@@ -54,7 +54,7 @@ const UserDropDown = ({ user }: { user: User }) => {
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <nav>
-                        <NavItems />
+                        <NavItems initialStocks={initialStocks} />
                     </nav>
                     <DropdownMenuItem onClick={handleSignOut} className="flex items-center gap-2 cursor-pointer">
                         <LogOut className="hidden sm:block" />
